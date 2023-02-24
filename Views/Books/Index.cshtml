@@ -1,0 +1,58 @@
+﻿@model IEnumerable<QuanLyThuVien.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+    int number = 0;
+}
+
+<h1>Sách</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Thêm Sách Mới</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Tên</th>
+            <th>Giá</th>
+            <th>Mô tả</th>
+            <th>Hình</th>
+            <th>Ngày Cập Nhật</th>
+            <th>Số Lượng</th>
+            <th>Nhà Sản Xuất</th>
+            <th>Thể Loại</th>
+            <th>Tác Giả</th>
+            <th>Lượt Bán</th>
+            <th>Đã Bán</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            number = number + 1;
+            <tr>
+                <td>
+                    @number
+                </td>
+                <td>@item.BookName</td>
+                <td>@item.Prices</td>
+                <td>@item.Description</td>
+                <td><img src="~/img/books/@item.Picture" /></td>
+                <td>@item.DateUpdate</td>
+                <td>@item.Quantity</td>
+                <td>@item.Publisher.PublisherName</td>
+                <td>@item.Category.CategoryName</td>
+                <td>@item.Author.AuthorName</td>
+                <td>@item.Viewed</td>
+                <td>@item.Saled</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.BookId">Chỉnh Sửa</a> |
+                    <a asp-action="Details" asp-route-id="@item.BookId">Chi Tiết</a> |
+                    <a asp-action="Delete" asp-route-id="@item.BookId">Xóa</a> |
+                    <a asp-action="Duplicate" asp-route-id="@item.BookId">Nhân Bản</a>
+                </td>
+            </tr>
+}
+    </tbody>
+</table>

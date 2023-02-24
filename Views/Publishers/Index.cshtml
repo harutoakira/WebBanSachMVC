@@ -1,0 +1,47 @@
+﻿@model IEnumerable<QuanLyThuVien.Models.Publisher>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Danh sách nhà xuất bản</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Thêm mới nhà xuất bản</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#
+            </th>
+            <th>
+                Tên nhà xuất bản
+            </th>
+            <th>
+                Địa chỉ
+            </th>
+            <th>Số điện thoại</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>@item.PublisherId</td>
+            <td>
+                @item.PublisherName
+            </td>
+            <td>
+                @item.Address
+            </td>
+            <td>
+                @item.PhoneNumber
+            </td>
+            <td>
+                <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.PublisherId">Sửa</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.PublisherId">Xóa</a>
+            </td>
+        </tr>
+     }
+    </tbody>
+</table>

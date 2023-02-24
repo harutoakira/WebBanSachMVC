@@ -1,0 +1,84 @@
+﻿@model QuanLyThuVien.Models.Book
+
+@{
+    ViewData["Title"] = "Duplicate";
+}
+
+<h1>Nhân bản cuốn sách này?</h1>
+<hr/>
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BookName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BookName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Prices)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Prices)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Picture)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Picture)
+        </dd>
+        <dt class = "col-sm-2">
+            Ngày cập
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateUpdate)
+        </dd>
+        <dt class = "col-sm-2">
+            Số lượng
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+        <dt class = "col-sm-2">
+            Nhà xuất bản
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Publisher.PublisherName)
+        </dd>
+        <dt class = "col-sm-2">
+            Thể loại
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Category.CategoryName)
+        </dd>
+        <dt class = "col-sm-2">
+            Tác giả
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Author.AuthorName)
+        </dd>
+        <dt class = "col-sm-2">
+            Lượt xem
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Viewed)
+        </dd>
+        <dt class = "col-sm-2">
+            Lượt bán
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Saled)
+        </dd>
+    </dl>
+    
+    <form asp-action="Duplicate">
+        <input type="hidden" asp-for="BookId" />
+        <input type="submit" value="Nhân bản" class="btn btn-primary" /> |
+        <a asp-action="Index" class="btn btn-secondary">Quay về</a>
+    </form>
+</div>

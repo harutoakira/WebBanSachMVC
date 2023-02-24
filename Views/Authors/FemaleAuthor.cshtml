@@ -1,0 +1,52 @@
+﻿@using QuanLyThuVien.Method;
+@model List<Author>
+@{
+}
+<h1>Danh sách tác giả nữ</h1>
+<hr />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>
+                Tên tác giả
+            </th>
+            <th>
+                Địa chỉ
+            </th>
+            <th>
+                Tiểu sử
+            </th>
+            <th>
+                Số điện thoại
+            </th>
+            <th>Giới tính</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.AuthorId</td>
+                <td>
+                    @item.AuthorName
+                </td>
+                <td>
+                    @item.Address
+                </td>
+                <td>
+                    @item.History
+                </td>
+                <td>
+                    @item.PhoneNumber
+                </td>
+                <td>@item.Sex</td>
+                <td>
+                    <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.AuthorId">Sửa</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.AuthorId">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

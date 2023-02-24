@@ -1,0 +1,32 @@
+﻿@model IEnumerable<QuanLyThuVien.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Danh sách thể loại</h1>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Thêm thể loại mới</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Tên thể loại</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>@item.CategoryId</td>
+            <td>
+                @item.CategoryName
+            </td>
+            <td>
+                <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.CategoryId">Sửa</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.CategoryId">Xóa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

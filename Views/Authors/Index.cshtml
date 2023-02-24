@@ -1,0 +1,67 @@
+﻿@model IEnumerable<QuanLyThuVien.Models.Author>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Danh sách tác giả</h1>
+<br/>
+<div class="row">
+    <div class="col">
+        <a class="btn btn-outline-primary" asp-action="MaleCreate">Thêm tác giả nam</a> |
+        <a class="btn btn-outline-primary" asp-action="FemaleCreate">Thêm tác giả nữ</a>
+    </div>
+    <div class="col">
+        <a class="btn btn-outline-primary" asp-action="MaleAuthor">Danh sách tác giả nam</a>
+        <a class="btn btn-outline-primary" asp-action="FemaleAuthor">Danh sách tác giả nữ</a>
+    </div>
+</div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>
+                Tên tác giả
+            </th>
+            <th>
+                Địa chỉ
+            </th>
+            <th>
+                Tiểu sử
+            </th>
+            <th>
+                Giới tính
+            </th>
+            <th>
+                Số điện thoại
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>@item.AuthorId</td>
+            <td>
+                @item.AuthorName
+            </td>
+            <td>
+                @item.Address
+            </td>
+            <td>
+                @item.History
+            </td>
+            <td>
+                @item.Sex
+            </td>
+            <td>
+                @item.PhoneNumber
+            </td>
+            <td>
+                <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.AuthorId">Sửa</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.AuthorId">Xóa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
